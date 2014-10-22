@@ -19,12 +19,15 @@ public:
     explicit MaFenetre(QWidget *parent = 0);
     ~MaFenetre();
     void readCard();
+    void poll();
 
 private:
     Ui::MaFenetre *ui;
     int16_t status;
     uint8_t uid[12];
     ReaderName reader;
+    unsigned char key_ff[6] = { 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF };
+    uint8_t key_index;
 
 private slots:
     void on_connect_clicked();
